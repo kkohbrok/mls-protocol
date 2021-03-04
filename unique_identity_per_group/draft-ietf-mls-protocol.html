@@ -28,21 +28,21 @@ in size ranging from two to thousands.
 <meta content="draft-ietf-mls-protocol-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.5.0
-    Python 3.8.5
+    Python 3.8.7
     appdirs 1.4.4
     ConfigArgParse 1.2.3
     google-i18n-address 2.4.0
     html5lib 1.1
-    intervaltree 3.0.2
+    intervaltree 3.1.0
     Jinja2 2.11.2
     kitchen 1.2.6
-    lxml 4.5.0
-    pycountry 19.8.18
-    pyflakes 2.1.1
-    PyYAML 5.3.1
-    requests 2.22.0
-    setuptools 45.2.0
-    six 1.14.0
+    lxml 4.6.2
+    pycountry 20.7.3
+    pyflakes 2.2.0
+    PyYAML 5.4.1
+    requests 2.25.1
+    setuptools 51.3.3
+    six 1.15.0
 -->
 <link href="draft-ietf-mls-protocol.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -55,7 +55,23 @@ html {
   --link-color: #2a6496;
   --highlight-color: #f9f9f9;
   --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
   --small-font-size: 14.5px;
+  scrollbar-color: #bbb #eee;
+}
+@media (prefers-color-scheme: dark) {
+html {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
 }
 body {
   max-width: 600px;
@@ -346,14 +362,14 @@ a.pilcrow {
   opacity: 0.2;
   user-select: none;
 }
-a.pilcrow[href] { color: #ddd; }
+a.pilcrow[href] { color: var(--pilcrow-weak); }
 a.pilcrow[href]:hover { text-decoration: none; }
-@media screen {
+@media not print {
   :hover > a.pilcrow {
     opacity: 1;
   }
   a.pilcrow[href]:hover {
-    color: #bbb;
+    color: var(--pilcrow-strong);
     background-color: transparent;
   }
 }
@@ -835,11 +851,11 @@ address div.right {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">MLS</td>
-<td class="right">January 2021</td>
+<td class="right">March 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Barnes, et al.</td>
-<td class="center">Expires 24 July 2021</td>
+<td class="center">Expires 5 September 2021</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -852,12 +868,12 @@ address div.right {
 <dd class="internet-draft">draft-ietf-mls-protocol-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-01-20" class="published">20 January 2021</time>
+<time datetime="2021-03-04" class="published">4 March 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-07-24">24 July 2021</time></dd>
+<dd class="expires"><time datetime="2021-09-05">5 September 2021</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -928,7 +944,7 @@ in size ranging from two to thousands.<a href="#section-abstract-1" class="pilcr
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 24 July 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 5 September 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -956,262 +972,262 @@ in size ranging from two to thousands.<a href="#section-abstract-1" class="pilcr
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.1">
+<nav class="toc"><ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.1.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-change-log" class="xref">Change Log</a><a href="#section-toc.1-1.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.2">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-terminology" class="xref">Terminology</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.3">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-basic-assumptions" class="xref">Basic Assumptions</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.4">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-protocol-overview" class="xref">Protocol Overview</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.5">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-ratchet-trees" class="xref">Ratchet Trees</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.5.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.5.2.1">
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-tree-computation-terminolog" class="xref">Tree Computation Terminology</a><a href="#section-toc.1-1.5.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.5.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.2">
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-ratchet-tree-nodes" class="xref">Ratchet Tree Nodes</a><a href="#section-toc.1-1.5.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.5.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.3">
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-views-of-a-ratchet-tree" class="xref">Views of a Ratchet Tree</a><a href="#section-toc.1-1.5.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.5.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.4">
                 <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="xref">5.4</a>.  <a href="#name-ratchet-tree-evolution" class="xref">Ratchet Tree Evolution</a><a href="#section-toc.1-1.5.2.4.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.5.2.5">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.5.2.5">
                 <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="xref">5.5</a>.  <a href="#name-synchronizing-views-of-the-" class="xref">Synchronizing Views of the Tree</a><a href="#section-toc.1-1.5.2.5.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.6">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-cryptographic-objects" class="xref">Cryptographic Objects</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.6.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-ciphersuites" class="xref">Ciphersuites</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.6.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.6.2.2">
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-credentials" class="xref">Credentials</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.7">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-key-packages" class="xref">Key Packages</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.7.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.7.2.1">
                 <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-client-capabilities" class="xref">Client Capabilities</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.2">
                 <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-lifetime" class="xref">Lifetime</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.3">
                 <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="xref">7.3</a>.  <a href="#name-keypackage-identifiers" class="xref">KeyPackage Identifiers</a><a href="#section-toc.1-1.7.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.4">
                 <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="xref">7.4</a>.  <a href="#name-parent-hash" class="xref">Parent Hash</a><a href="#section-toc.1-1.7.2.4.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.5">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.5">
                 <p id="section-toc.1-1.7.2.5.1"><a href="#section-7.5" class="xref">7.5</a>.  <a href="#name-tree-hashes" class="xref">Tree Hashes</a><a href="#section-toc.1-1.7.2.5.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.6">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.6">
                 <p id="section-toc.1-1.7.2.6.1"><a href="#section-7.6" class="xref">7.6</a>.  <a href="#name-group-state" class="xref">Group State</a><a href="#section-toc.1-1.7.2.6.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.7.2.7">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.7.2.7">
                 <p id="section-toc.1-1.7.2.7.1"><a href="#section-7.7" class="xref">7.7</a>.  <a href="#name-update-paths" class="xref">Update Paths</a><a href="#section-toc.1-1.7.2.7.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.8">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-key-schedule" class="xref">Key Schedule</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.8.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.8.2.1">
                 <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-external-initialization" class="xref">External Initialization</a><a href="#section-toc.1-1.8.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.8.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.8.2.2">
                 <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="xref">8.2</a>.  <a href="#name-pre-shared-keys" class="xref">Pre-Shared Keys</a><a href="#section-toc.1-1.8.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.8.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.8.2.3">
                 <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="xref">8.3</a>.  <a href="#name-secret-tree" class="xref">Secret Tree</a><a href="#section-toc.1-1.8.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.8.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.8.2.4">
                 <p id="section-toc.1-1.8.2.4.1"><a href="#section-8.4" class="xref">8.4</a>.  <a href="#name-encryption-keys" class="xref">Encryption Keys</a><a href="#section-toc.1-1.8.2.4.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.8.2.5">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.8.2.5">
                 <p id="section-toc.1-1.8.2.5.1"><a href="#section-8.5" class="xref">8.5</a>.  <a href="#name-deletion-schedule" class="xref">Deletion Schedule</a><a href="#section-toc.1-1.8.2.5.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.8.2.6">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.8.2.6">
                 <p id="section-toc.1-1.8.2.6.1"><a href="#section-8.6" class="xref">8.6</a>.  <a href="#name-exporters" class="xref">Exporters</a><a href="#section-toc.1-1.8.2.6.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.8.2.7">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.8.2.7">
                 <p id="section-toc.1-1.8.2.7.1"><a href="#section-8.7" class="xref">8.7</a>.  <a href="#name-resumption-secret" class="xref">Resumption Secret</a><a href="#section-toc.1-1.8.2.7.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.8.2.8">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.8.2.8">
                 <p id="section-toc.1-1.8.2.8.1"><a href="#section-8.8" class="xref">8.8</a>.  <a href="#name-state-authentication-keys" class="xref">State Authentication Keys</a><a href="#section-toc.1-1.8.2.8.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.9">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.9">
             <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-message-framing" class="xref">Message Framing</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.9.2.1">
                 <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-content-authentication" class="xref">Content Authentication</a><a href="#section-toc.1-1.9.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.9.2.2">
                 <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-content-encryption" class="xref">Content Encryption</a><a href="#section-toc.1-1.9.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.9.2.3">
                 <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="xref">9.3</a>.  <a href="#name-sender-data-encryption" class="xref">Sender Data Encryption</a><a href="#section-toc.1-1.9.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.10">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.10">
             <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-group-creation" class="xref">Group Creation</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.10.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.10.2.1">
                 <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="xref">10.1</a>.  <a href="#name-linking-a-new-group-to-an-e" class="xref">Linking a New Group to an Existing Group</a><a href="#section-toc.1-1.10.2.1.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.10.2.1.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.10.2.1.2.1">
                     <p id="section-toc.1-1.10.2.1.2.1.1"><a href="#section-10.1.1" class="xref">10.1.1</a>.  <a href="#name-sub-group-branching" class="xref">Sub-group Branching</a><a href="#section-toc.1-1.10.2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.11">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.11">
             <p id="section-toc.1-1.11.1"><a href="#section-11" class="xref">11</a>. <a href="#name-group-evolution" class="xref">Group Evolution</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.11.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.11.2.1">
                 <p id="section-toc.1-1.11.2.1.1"><a href="#section-11.1" class="xref">11.1</a>.  <a href="#name-proposals" class="xref">Proposals</a><a href="#section-toc.1-1.11.2.1.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.11.2.1.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.11.2.1.2.1">
                     <p id="section-toc.1-1.11.2.1.2.1.1"><a href="#section-11.1.1" class="xref">11.1.1</a>.  <a href="#name-add" class="xref">Add</a><a href="#section-toc.1-1.11.2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.11.2.1.2.2">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.11.2.1.2.2">
                     <p id="section-toc.1-1.11.2.1.2.2.1"><a href="#section-11.1.2" class="xref">11.1.2</a>.  <a href="#name-update" class="xref">Update</a><a href="#section-toc.1-1.11.2.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.11.2.1.2.3">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.11.2.1.2.3">
                     <p id="section-toc.1-1.11.2.1.2.3.1"><a href="#section-11.1.3" class="xref">11.1.3</a>.  <a href="#name-remove" class="xref">Remove</a><a href="#section-toc.1-1.11.2.1.2.3.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.11.2.1.2.4">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.11.2.1.2.4">
                     <p id="section-toc.1-1.11.2.1.2.4.1"><a href="#section-11.1.4" class="xref">11.1.4</a>.  <a href="#name-presharedkey" class="xref">PreSharedKey</a><a href="#section-toc.1-1.11.2.1.2.4.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.11.2.1.2.5">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.11.2.1.2.5">
                     <p id="section-toc.1-1.11.2.1.2.5.1"><a href="#section-11.1.5" class="xref">11.1.5</a>.  <a href="#name-reinit" class="xref">ReInit</a><a href="#section-toc.1-1.11.2.1.2.5.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.11.2.1.2.6">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.11.2.1.2.6">
                     <p id="section-toc.1-1.11.2.1.2.6.1"><a href="#section-11.1.6" class="xref">11.1.6</a>.  <a href="#name-externalinit" class="xref">ExternalInit</a><a href="#section-toc.1-1.11.2.1.2.6.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.11.2.1.2.7">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.11.2.1.2.7">
                     <p id="section-toc.1-1.11.2.1.2.7.1"><a href="#section-11.1.7" class="xref">11.1.7</a>.  <a href="#name-external-proposals" class="xref">External Proposals</a><a href="#section-toc.1-1.11.2.1.2.7.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.11.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.11.2.2">
                 <p id="section-toc.1-1.11.2.2.1"><a href="#section-11.2" class="xref">11.2</a>.  <a href="#name-commit" class="xref">Commit</a><a href="#section-toc.1-1.11.2.2.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.11.2.2.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.11.2.2.2.1">
                     <p id="section-toc.1-1.11.2.2.2.1.1"><a href="#section-11.2.1" class="xref">11.2.1</a>.  <a href="#name-external-commits" class="xref">External Commits</a><a href="#section-toc.1-1.11.2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.11.2.2.2.2">
+                  <li class="toc ulEmpty compact" id="section-toc.1-1.11.2.2.2.2">
                     <p id="section-toc.1-1.11.2.2.2.2.1"><a href="#section-11.2.2" class="xref">11.2.2</a>.  <a href="#name-welcoming-new-members" class="xref">Welcoming New Members</a><a href="#section-toc.1-1.11.2.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.11.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.11.2.3">
                 <p id="section-toc.1-1.11.2.3.1"><a href="#section-11.3" class="xref">11.3</a>.  <a href="#name-ratchet-tree-extension" class="xref">Ratchet Tree Extension</a><a href="#section-toc.1-1.11.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.12">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.12">
             <p id="section-toc.1-1.12.1"><a href="#section-12" class="xref">12</a>. <a href="#name-extensibility" class="xref">Extensibility</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.13">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.13">
             <p id="section-toc.1-1.13.1"><a href="#section-13" class="xref">13</a>. <a href="#name-sequencing-of-state-changes" class="xref">Sequencing of State Changes</a><a href="#section-toc.1-1.13.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.13.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.13.2.1">
                 <p id="section-toc.1-1.13.2.1.1"><a href="#section-13.1" class="xref">13.1</a>.  <a href="#name-server-enforced-ordering" class="xref">Server-Enforced Ordering</a><a href="#section-toc.1-1.13.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.13.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.13.2.2">
                 <p id="section-toc.1-1.13.2.2.1"><a href="#section-13.2" class="xref">13.2</a>.  <a href="#name-client-enforced-ordering" class="xref">Client-Enforced Ordering</a><a href="#section-toc.1-1.13.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.14">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.14">
             <p id="section-toc.1-1.14.1"><a href="#section-14" class="xref">14</a>. <a href="#name-application-messages" class="xref">Application Messages</a><a href="#section-toc.1-1.14.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.14.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.14.2.1">
                 <p id="section-toc.1-1.14.2.1.1"><a href="#section-14.1" class="xref">14.1</a>.  <a href="#name-message-encryption-and-decr" class="xref">Message Encryption and Decryption</a><a href="#section-toc.1-1.14.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.14.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.14.2.2">
                 <p id="section-toc.1-1.14.2.2.1"><a href="#section-14.2" class="xref">14.2</a>.  <a href="#name-restrictions" class="xref">Restrictions</a><a href="#section-toc.1-1.14.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.14.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.14.2.3">
                 <p id="section-toc.1-1.14.2.3.1"><a href="#section-14.3" class="xref">14.3</a>.  <a href="#name-delayed-and-reordered-appli" class="xref">Delayed and Reordered Application messages</a><a href="#section-toc.1-1.14.2.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.15">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.15">
             <p id="section-toc.1-1.15.1"><a href="#section-15" class="xref">15</a>. <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.15.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.15.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.15.2.1">
                 <p id="section-toc.1-1.15.2.1.1"><a href="#section-15.1" class="xref">15.1</a>.  <a href="#name-confidentiality-of-the-grou" class="xref">Confidentiality of the Group Secrets</a><a href="#section-toc.1-1.15.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.15.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.15.2.2">
                 <p id="section-toc.1-1.15.2.2.1"><a href="#section-15.2" class="xref">15.2</a>.  <a href="#name-authentication" class="xref">Authentication</a><a href="#section-toc.1-1.15.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.15.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.15.2.3">
                 <p id="section-toc.1-1.15.2.3.1"><a href="#section-15.3" class="xref">15.3</a>.  <a href="#name-forward-secrecy-and-post-co" class="xref">Forward Secrecy and Post-Compromise Security</a><a href="#section-toc.1-1.15.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.15.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.15.2.4">
                 <p id="section-toc.1-1.15.2.4.1"><a href="#section-15.4" class="xref">15.4</a>.  <a href="#name-initkey-reuse" class="xref">InitKey Reuse</a><a href="#section-toc.1-1.15.2.4.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.16">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.16">
             <p id="section-toc.1-1.16.1"><a href="#section-16" class="xref">16</a>. <a href="#name-iana-considerations" class="xref">IANA Considerations</a><a href="#section-toc.1-1.16.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.16.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.16.2.1">
                 <p id="section-toc.1-1.16.2.1.1"><a href="#section-16.1" class="xref">16.1</a>.  <a href="#name-mls-ciphersuites" class="xref">MLS Ciphersuites</a><a href="#section-toc.1-1.16.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.16.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.16.2.2">
                 <p id="section-toc.1-1.16.2.2.1"><a href="#section-16.2" class="xref">16.2</a>.  <a href="#name-mls-extension-types" class="xref">MLS Extension Types</a><a href="#section-toc.1-1.16.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.16.2.3">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.16.2.3">
                 <p id="section-toc.1-1.16.2.3.1"><a href="#section-16.3" class="xref">16.3</a>.  <a href="#name-mls-credential-types" class="xref">MLS Credential Types</a><a href="#section-toc.1-1.16.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.16.2.4">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.16.2.4">
                 <p id="section-toc.1-1.16.2.4.1"><a href="#section-16.4" class="xref">16.4</a>.  <a href="#name-mls-designated-expert-pool" class="xref">MLS Designated Expert Pool</a><a href="#section-toc.1-1.16.2.4.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.17">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.17">
             <p id="section-toc.1-1.17.1"><a href="#section-17" class="xref">17</a>. <a href="#name-contributors" class="xref">Contributors</a><a href="#section-toc.1-1.17.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.18">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.18">
             <p id="section-toc.1-1.18.1"><a href="#section-18" class="xref">18</a>. <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.18.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.18.2.1">
+<ul class="toc ulEmpty compact">
+<li class="toc ulEmpty compact" id="section-toc.1-1.18.2.1">
                 <p id="section-toc.1-1.18.2.1.1"><a href="#section-18.1" class="xref">18.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a><a href="#section-toc.1-1.18.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="ulEmpty compact toc" id="section-toc.1-1.18.2.2">
+              <li class="toc ulEmpty compact" id="section-toc.1-1.18.2.2">
                 <p id="section-toc.1-1.18.2.2.1"><a href="#section-18.2" class="xref">18.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a><a href="#section-toc.1-1.18.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.19">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.19">
             <p id="section-toc.1-1.19.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-tree-math" class="xref">Tree Math</a><a href="#section-toc.1-1.19.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.20">
+          <li class="toc ulEmpty compact" id="section-toc.1-1.20">
             <p id="section-toc.1-1.20.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.20.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
@@ -3989,9 +4005,10 @@ any Update or Remove proposals, or if it's empty. Otherwise, the <code>path</cod
 MAY be omitted.<a href="#section-11.2-16.5" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-11.2-16.6">
-            <p id="section-11.2-16.6.1">If the <code>path</code> value is populated: Process the <code>path</code> value using the ratchet
-tree the provisional GroupContext, to update the ratchet tree and generate the
-<code>commit_secret</code>:<a href="#section-11.2-16.6.1" class="pilcrow">¶</a></p>
+            <p id="section-11.2-16.6.1">If the <code>path</code> value is populated: Verify that the identity and signature key
+of the credential in the new leaf are unique for this group. Then process the
+<code>path</code> value using the ratchet tree the provisional GroupContext, to update
+the ratchet tree and generate the <code>commit_secret</code>:<a href="#section-11.2-16.6.1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-11.2-16.6.2.1">Apply the UpdatePath to the tree, as described in
 <a href="#synchronizing-views-of-the-tree" class="xref">Section 5.5</a>, and store <code>key_package</code> at the
@@ -5191,27 +5208,27 @@ thyla.van.der@merwe.tech<a href="#section-17-1.12.3" class="pilcrow">¶</a></p>
 <dl class="references">
 <dt id="I-D.irtf-cfrg-hpke">[I-D.irtf-cfrg-hpke]</dt>
         <dd>
-<span class="refAuthor">Barnes, R.</span><span class="refAuthor">, Bhargavan, K.</span><span class="refAuthor">, Lipp, B.</span><span class="refAuthor">, and C. Wood</span>, <span class="refTitle">"Hybrid Public Key Encryption"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-hpke-07</span>, <time datetime="2020-12-16" class="refDate">16 December 2020</time>, <span>&lt;<a href="http://www.ietf.org/internet-drafts/draft-irtf-cfrg-hpke-07.txt">http://www.ietf.org/internet-drafts/draft-irtf-cfrg-hpke-07.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Barnes, R. L.</span><span class="refAuthor">, Bhargavan, K.</span><span class="refAuthor">, Lipp, B.</span><span class="refAuthor">, and C. A. Wood</span>, <span class="refTitle">"Hybrid Public Key Encryption"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-hpke-08</span>, <time datetime="2021-02-15" class="refDate">15 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-hpke-08.txt">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-hpke-08.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2104">[RFC2104]</dt>
         <dd>
-<span class="refAuthor">Krawczyk, H.</span><span class="refAuthor">, Bellare, M.</span><span class="refAuthor">, and R. Canetti</span>, <span class="refTitle">"HMAC: Keyed-Hashing for Message Authentication"</span>, <span class="seriesInfo">RFC 2104</span>, <span class="seriesInfo">DOI 10.17487/RFC2104</span>, <time datetime="1997-02" class="refDate">February 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2104">https://www.rfc-editor.org/info/rfc2104</a>&gt;</span>. </dd>
+<span class="refAuthor">Krawczyk, H.</span><span class="refAuthor">, Bellare, M.</span><span class="refAuthor">, and R. Canetti</span>, <span class="refTitle">"HMAC: Keyed-Hashing for Message Authentication"</span>, <span class="seriesInfo">RFC 2104</span>, <span class="seriesInfo">DOI 10.17487/RFC2104</span>, <time datetime="1997-02" class="refDate">February 1997</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc2104">https://datatracker.ietf.org/doc/html/rfc2104</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
-<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;</span>. </dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8126">[RFC8126]</dt>
         <dd>
-<span class="refAuthor">Cotton, M.</span><span class="refAuthor">, Leiba, B.</span><span class="refAuthor">, and T. Narten</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="seriesInfo">BCP 26</span>, <span class="seriesInfo">RFC 8126</span>, <span class="seriesInfo">DOI 10.17487/RFC8126</span>, <time datetime="2017-06" class="refDate">June 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8126">https://www.rfc-editor.org/info/rfc8126</a>&gt;</span>. </dd>
+<span class="refAuthor">Cotton, M.</span><span class="refAuthor">, Leiba, B.</span><span class="refAuthor">, and T. Narten</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="seriesInfo">BCP 26</span>, <span class="seriesInfo">RFC 8126</span>, <span class="seriesInfo">DOI 10.17487/RFC8126</span>, <time datetime="2017-06" class="refDate">June 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8126">https://datatracker.ietf.org/doc/html/rfc8126</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
-<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8174">https://www.rfc-editor.org/info/rfc8174</a>&gt;</span>. </dd>
+<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8174">https://datatracker.ietf.org/doc/html/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8446">[RFC8446]</dt>
       <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="seriesInfo">RFC 8446</span>, <span class="seriesInfo">DOI 10.17487/RFC8446</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8446">https://www.rfc-editor.org/info/rfc8446</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="seriesInfo">RFC 8446</span>, <span class="seriesInfo">DOI 10.17487/RFC8446</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8446">https://datatracker.ietf.org/doc/html/rfc8446</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -5238,15 +5255,15 @@ thyla.van.der@merwe.tech<a href="#section-17-1.12.3" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="I-D.ietf-mls-architecture">[I-D.ietf-mls-architecture]</dt>
         <dd>
-<span class="refAuthor">Omara, E.</span><span class="refAuthor">, Beurdouche, B.</span><span class="refAuthor">, Rescorla, E.</span><span class="refAuthor">, Inguva, S.</span><span class="refAuthor">, Kwon, A.</span><span class="refAuthor">, and A. Duric</span>, <span class="refTitle">"The Messaging Layer Security (MLS) Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-mls-architecture-05</span>, <time datetime="2020-07-26" class="refDate">26 July 2020</time>, <span>&lt;<a href="http://www.ietf.org/internet-drafts/draft-ietf-mls-architecture-05.txt">http://www.ietf.org/internet-drafts/draft-ietf-mls-architecture-05.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Omara, E.</span><span class="refAuthor">, Beurdouche, B.</span><span class="refAuthor">, Rescorla, E.</span><span class="refAuthor">, Inguva, S.</span><span class="refAuthor">, Kwon, A.</span><span class="refAuthor">, and A. Duric</span>, <span class="refTitle">"The Messaging Layer Security (MLS) Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-mls-architecture-05</span>, <time datetime="2020-07-26" class="refDate">26 July 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-mls-architecture-05.txt">https://datatracker.ietf.org/doc/html/draft-ietf-mls-architecture-05.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-trans-rfc6962-bis">[I-D.ietf-trans-rfc6962-bis]</dt>
         <dd>
-<span class="refAuthor">Laurie, B.</span><span class="refAuthor">, Langley, A.</span><span class="refAuthor">, Kasper, E.</span><span class="refAuthor">, Messeri, E.</span><span class="refAuthor">, and R. Stradling</span>, <span class="refTitle">"Certificate Transparency Version 2.0"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-trans-rfc6962-bis-34</span>, <time datetime="2019-11-04" class="refDate">4 November 2019</time>, <span>&lt;<a href="http://www.ietf.org/internet-drafts/draft-ietf-trans-rfc6962-bis-34.txt">http://www.ietf.org/internet-drafts/draft-ietf-trans-rfc6962-bis-34.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Laurie, B.</span><span class="refAuthor">, Langley, A.</span><span class="refAuthor">, Kasper, E.</span><span class="refAuthor">, Messeri, E.</span><span class="refAuthor">, and R. Stradling</span>, <span class="refTitle">"Certificate Transparency Version 2.0"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-trans-rfc6962-bis-34</span>, <time datetime="2019-11-04" class="refDate">4 November 2019</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-trans-rfc6962-bis-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-trans-rfc6962-bis-34.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8032">[RFC8032]</dt>
         <dd>
-<span class="refAuthor">Josefsson, S.</span><span class="refAuthor"> and I. Liusvaara</span>, <span class="refTitle">"Edwards-Curve Digital Signature Algorithm (EdDSA)"</span>, <span class="seriesInfo">RFC 8032</span>, <span class="seriesInfo">DOI 10.17487/RFC8032</span>, <time datetime="2017-01" class="refDate">January 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8032">https://www.rfc-editor.org/info/rfc8032</a>&gt;</span>. </dd>
+<span class="refAuthor">Josefsson, S.</span><span class="refAuthor"> and I. Liusvaara</span>, <span class="refTitle">"Edwards-Curve Digital Signature Algorithm (EdDSA)"</span>, <span class="seriesInfo">RFC 8032</span>, <span class="seriesInfo">DOI 10.17487/RFC8032</span>, <time datetime="2017-01" class="refDate">January 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8032">https://datatracker.ietf.org/doc/html/rfc8032</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="SECG">[SECG]</dt>
         <dd>

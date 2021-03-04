@@ -5,7 +5,7 @@
 Network Working Group                                          R. Barnes
 Internet-Draft                                                     Cisco
 Intended status: Informational                             B. Beurdouche
-Expires: 24 July 2021                                              Inria
+Expires: 5 September 2021                                          Inria
                                                              J. Millican
                                                                 Facebook
                                                                 E. Omara
@@ -14,7 +14,7 @@ Expires: 24 July 2021                                              Inria
                                                     University of Oxford
                                                                R. Robert
                                                                     Wire
-                                                         20 January 2021
+                                                            4 March 2021
 
 
               The Messaging Layer Security (MLS) Protocol
@@ -56,7 +56,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 July 2021.
+   This Internet-Draft will expire on 5 September 2021.
 
 Copyright Notice
 
@@ -2647,9 +2647,11 @@ sender_data_nonce = ExpandWithLabel(sender_data_secret, "nonce", ciphertext_samp
       vector contains any Update or Remove proposals, or if it's empty.
       Otherwise, the "path" value MAY be omitted.
 
-   *  If the "path" value is populated: Process the "path" value using
-      the ratchet tree the provisional GroupContext, to update the
-      ratchet tree and generate the "commit_secret":
+   *  If the "path" value is populated: Verify that the identity and
+      signature key of the credential in the new leaf are unique for
+      this group.  Then process the "path" value using the ratchet tree
+      the provisional GroupContext, to update the ratchet tree and
+      generate the "commit_secret":
 
       -  Apply the UpdatePath to the tree, as described in Section 5.5,
          and store "key_package" at the Committer's leaf.
@@ -3620,34 +3622,34 @@ sender_data_nonce = ExpandWithLabel(sender_data_secret, "nonce", ciphertext_samp
 18.1.  Normative References
 
    [I-D.irtf-cfrg-hpke]
-              Barnes, R., Bhargavan, K., Lipp, B., and C. Wood, "Hybrid
-              Public Key Encryption", Work in Progress, Internet-Draft,
-              draft-irtf-cfrg-hpke-07, 16 December 2020,
-              <http://www.ietf.org/internet-drafts/draft-irtf-cfrg-hpke-
-              07.txt>.
+              Barnes, R. L., Bhargavan, K., Lipp, B., and C. A. Wood,
+              "Hybrid Public Key Encryption", Work in Progress,
+              Internet-Draft, draft-irtf-cfrg-hpke-08, 15 February 2021,
+              <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
+              hpke-08.txt>.
 
    [RFC2104]  Krawczyk, H., Bellare, M., and R. Canetti, "HMAC: Keyed-
               Hashing for Message Authentication", RFC 2104,
               DOI 10.17487/RFC2104, February 1997,
-              <https://www.rfc-editor.org/info/rfc2104>.
+              <https://datatracker.ietf.org/doc/html/rfc2104>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
+              <https://datatracker.ietf.org/doc/html/rfc2119>.
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
-              <https://www.rfc-editor.org/info/rfc8126>.
+              <https://datatracker.ietf.org/doc/html/rfc8126>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+              May 2017, <https://datatracker.ietf.org/doc/html/rfc8174>.
 
    [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
               Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
-              <https://www.rfc-editor.org/info/rfc8446>.
+              <https://datatracker.ietf.org/doc/html/rfc8446>.
 
 18.2.  Informative References
 
@@ -3682,20 +3684,20 @@ sender_data_nonce = ExpandWithLabel(sender_data_secret, "nonce", ciphertext_samp
               A., and A. Duric, "The Messaging Layer Security (MLS)
               Architecture", Work in Progress, Internet-Draft, draft-
               ietf-mls-architecture-05, 26 July 2020,
-              <http://www.ietf.org/internet-drafts/draft-ietf-mls-
+              <https://datatracker.ietf.org/doc/html/draft-ietf-mls-
               architecture-05.txt>.
 
    [I-D.ietf-trans-rfc6962-bis]
               Laurie, B., Langley, A., Kasper, E., Messeri, E., and R.
               Stradling, "Certificate Transparency Version 2.0", Work in
               Progress, Internet-Draft, draft-ietf-trans-rfc6962-bis-34,
-              4 November 2019, <http://www.ietf.org/internet-drafts/
+              4 November 2019, <https://datatracker.ietf.org/doc/html/
               draft-ietf-trans-rfc6962-bis-34.txt>.
 
    [RFC8032]  Josefsson, S. and I. Liusvaara, "Edwards-Curve Digital
               Signature Algorithm (EdDSA)", RFC 8032,
               DOI 10.17487/RFC8032, January 2017,
-              <https://www.rfc-editor.org/info/rfc8032>.
+              <https://datatracker.ietf.org/doc/html/rfc8032>.
 
    [SECG]     "Elliptic Curve Cryptography, Standards for Efficient
               Cryptography Group, ver. 2", 2009,
