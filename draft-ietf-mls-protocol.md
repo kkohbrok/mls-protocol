@@ -1174,6 +1174,7 @@ matches the `parent_hash` value in the supplied `leaf_key_package`. Moreover, wh
 joining a group, new members MUST authenticate each non-blank parent node P. A parent
 node P is authenticated by performing the following check:
 
+* If the parent of P is blank, the check passes
 * Let L and R be the left and right children of P, respectively
 * If L.parent_hash is equal to the Parent Hash of P with Co-Path Child R, the check passes
 * If R is blank, replace R with its left child until R is either non-blank or a leaf node
@@ -1181,9 +1182,12 @@ node P is authenticated by performing the following check:
 * If R.parent_hash is equal to the Parent Hash of P with Co-Path Child L, the check passes
 * Otherwise, the check fails
 
-The left-child recursion under the right child of P is necessary because the expansion of
-the tree to the right due to Add proposals can cause blank nodes to be interposed
-between a parent node and its right child.
+The check for parent of P being blank is necessary, because in the cause of
+Add-only Commits without an UpdatePath, a blank node can be added as parent of
+the former root node. Similarly, the left-child recursion under the right child
+of P is necessary because the expansion of the tree to the right due to Add
+proposals can cause blank nodes to be interposed between a parent node and its
+right child.
 
 ## Tree Hashes
 
