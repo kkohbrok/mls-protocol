@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2020-10-29T00:42:04.733741+00:00",
+  "timestamp": "2022-12-06T00:42:55.870055+00:00",
   "repo": "kkohbrok/mls-protocol",
   "labels": [
     {
@@ -19,14 +19,14 @@
       "color": "a2eeef"
     },
     {
-      "name": "help wanted",
-      "description": "Extra attention is needed",
-      "color": "008672"
-    },
-    {
       "name": "good first issue",
       "description": "Good for newcomers",
       "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
     },
     {
       "name": "invalid",
@@ -45,5 +45,32 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOCgA5Qc40KjuE",
+      "title": "Preconfigured senders",
+      "url": "https://github.com/kkohbrok/mls-protocol/pull/1",
+      "state": "CLOSED",
+      "author": "kkohbrok",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-03-09T11:09:27Z",
+      "updatedAt": "2022-03-09T13:59:05Z",
+      "baseRepository": "kkohbrok/mls-protocol",
+      "baseRefName": "master",
+      "baseRefOid": "c0079c6f9840d4589f574d1fef4c106b69653a8a",
+      "headRepository": "kkohbrok/mls-protocol",
+      "headRefName": "preconfigured-senders",
+      "headRefOid": "1ddf05be09e43afd088719879d1f3b606a33deca",
+      "closedAt": "2022-03-09T13:59:05Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
